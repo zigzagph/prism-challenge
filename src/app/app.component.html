@@ -1,5 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 h1 text-center">Prism Challenge</div>
-    </div>    
+        <div class="col-sm-12 h1 text-center" style="padding: 30px">Prism Challenge</div>
+    </div>
+
+    <div class="row">
+        <app-list class="col-sm-4" *ngIf="userData" [users]="userData" [(currentUser)]="selectedUser" (userSelectionEvent)="changeUserEvent($event);" style="padding-bottom: 30px"></app-list>
+        <app-details class="col-sm-8" *ngIf="selectedUser" [user]="selectedUser"></app-details>
+    </div>
 </div>

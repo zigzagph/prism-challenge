@@ -1,0 +1,30 @@
+<div class="row" style="padding-bottom: 20px">
+  <div class="col-sm-12">
+      <div class="card border-primary">
+          <div class="card-header font-weight-bold"><h4>User Info</h4></div>
+          <div class="card-body">
+
+              <div *ngIf="user.id" class="row">
+                  <h5 class="col-sm-3 text-sm-right">Id:</h5>
+                  <h5 class="col-sm-9 text-sm-left">{{user.id}}</h5>
+              </div>
+
+              <div *ngIf="user.login" class="row">
+                  <h5 class="col-sm-3 text-sm-right">Login:</h5>
+                  <h5 class="col-sm-9 text-sm-left">{{user.login}}</h5>
+              </div>
+
+              <div class="row">
+                  <h5 class="col-sm-3 text-sm-right">Site Admin:</h5>
+                  <h5 class="col-sm-9 text-sm-left">{{user.site_admin}}</h5>
+              </div>
+
+              <div *ngIf="user.url" class="row">
+                <h5 class="col-sm-3 text-sm-right">URL:</h5>
+                <a class="col-sm-9" [attr.href]="user.url"><div class="h5 text-sm-left">{{user.url}}</div></a>
+            </div>
+
+          </div>
+      </div>
+  </div>
+</div>

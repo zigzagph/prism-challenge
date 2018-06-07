@@ -1,0 +1,14 @@
+<div *ngIf="users" class="card border-dark">
+
+    <div class="card-header">
+        <h4 class="card-title text-center font-weight-bold">User List</h4>
+    </div>
+
+    <div class="list-group">
+        <a class="list-group-item list-group-flush" *ngFor="let user of users" (click)="userClick(user)" [class.active]="currentUser == user">
+            <div class="row">
+                <div class="col-sm-12 text-center">{{user.login}}</div>
+            </div>
+        </a>
+    </div>
+</div>
