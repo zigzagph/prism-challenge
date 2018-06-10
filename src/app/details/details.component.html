@@ -1,6 +1,6 @@
 <div class="row" style="padding-bottom: 20px">
   <div class="col-sm-12">
-      <div class="card border-primary">
+      <div class="card border-primary shadow">
           <div class="card-header font-weight-bold"><h4>User Info</h4></div>
           <div class="card-body">
 
@@ -21,7 +21,7 @@
 
               <div *ngIf="user.url" class="row">
                 <h5 class="col-sm-3 text-sm-right">URL:</h5>
-                <a class="col-sm-9" [attr.href]="user.url"><div class="h5 text-sm-left">{{user.url}}</div></a>
+                <a target="_blank" class="col-sm-9" [attr.href]="user.url"><div class="h5 text-sm-left">{{user.url}}</div></a>
             </div>
 
           </div>

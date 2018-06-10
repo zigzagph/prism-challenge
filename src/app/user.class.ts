@@ -1,5 +1,5 @@
 export class User {
-    private login: string;
+    public login: string;
     private id: number;
     private node_id: string;
     private avatar_url: string;
@@ -16,5 +16,5 @@ export class User {
     private events_url: string;
     private received_events_url: string;
     private type: string;
-    private site_admin: boolean;
+    public site_admin: boolean;
 }

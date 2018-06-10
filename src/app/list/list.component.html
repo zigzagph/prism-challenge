@@ -1,11 +1,26 @@
 <div *ngIf="users" class="card border-dark">
 
+    <!-- Header -->
     <div class="card-header">
         <h4 class="card-title text-center font-weight-bold">User List</h4>
     </div>
 
-    <div class="list-group">
-        <a class="list-group-item list-group-flush" *ngFor="let user of users" (click)="userClick(user)" [class.active]="currentUser == user">
+    <!-- Filters -->
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-12 h5 text-center">Filters</div>
+        </div>
+        <div class="row"> 
+            <button (click)="showAll()" type="button" class="btn btn-primary" style="margin: 5px">Show All</button>
+            <button (click)="admins()" type="button" class="btn btn-primary" style="margin: 5px">Site Admins</button>
+            <button (click)="non()" type="button" class="btn btn-primary" style="margin: 5px">Non Admins</button>
+            <input class="text-center" #box (keyup.enter)="onEnter(box.value); box.value='';" placeholder="Search logins" style="margin: 4px;">
+        </div>
+    </div>
+
+    <!-- User List -->
+    <div class="list-group shadow" id="userList">
+        <a class="list-group-item list-group-flush" *ngFor="let user of users" (click)="userClick(user)" [class.active]="currentUser == user" [style.display]="(user | filter : filterValue) ? 'inline' : 'none'">
             <div class="row">
                 <div class="col-sm-12 text-center">{{user.login}}</div>
             </div>
