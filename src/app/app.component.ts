@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AppService } from './services/app.service';
 import { User } from './user.class';
 
@@ -7,7 +7,7 @@ import { User } from './user.class';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
     public userData: Array<User> = [];
     public selectedUser: User;
     
@@ -18,6 +18,17 @@ export class AppComponent {
             data => this.userData = data, 
             error => console.log(error)
         )
+
+        /* setTimeout(() => {
+            let nUser = new User();
+            nUser.login = "Poo";
+            nUser.site_admin = true;
+            this.userData.push(nUser);
+        }, 5000); */
+    }
+
+    ngOnDestroy(){
+        console.log("Killing");
     }
 
     // fired when a user is selected from the user list

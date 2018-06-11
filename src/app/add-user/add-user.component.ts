@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../user.class';
 
@@ -7,7 +7,7 @@ import { User } from '../user.class';
     templateUrl: './add-user.component.html',
     styleUrls: ['./add-user.component.css']
 })
-export class AddUserComponent implements OnInit {
+export class AddUserComponent {
     @Input() private users: Array<User>;
     private newUserForm: FormGroup;
 
@@ -18,11 +18,8 @@ export class AddUserComponent implements OnInit {
         })
     }
 
-    ngOnInit() {}
-
     // Handles form submissions
     private submitForm(formObj: any): void {
-        console.log("Form : " + JSON.stringify(formObj));
         let newUser = new User();
         newUser.login = formObj.login;
         newUser.site_admin = formObj.site_admin;

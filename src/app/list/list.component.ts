@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.class';
 import { Pipe, PipeTransform } from "@angular/core";
-import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-list',

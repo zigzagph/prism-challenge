@@ -8,6 +8,7 @@ import { AppService } from './services/app.service';
 import { ListComponent, FilterPipe } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UserMgmtComponent } from './user-mgmt/user-mgmt.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     ListComponent,
     DetailsComponent,
     FilterPipe,
-    AddUserComponent
+    AddUserComponent,
+    UserMgmtComponent
   ],
   imports: [
     BrowserModule,
