@@ -10,11 +10,22 @@
         <div class="row">
             <div class="col-sm-12 h5 text-center">Filters</div>
         </div>
-        <div class="row"> 
-            <button (click)="showAll()" type="button" class="btn btn-primary" style="margin: 5px">Show All</button>
-            <button (click)="admins()" type="button" class="btn btn-primary" style="margin: 5px">Site Admins</button>
-            <button (click)="non()" type="button" class="btn btn-primary" style="margin: 5px">Non Admins</button>
-            <input class="text-center" #box (keyup.enter)="onEnter(box.value); box.value='';" placeholder="Search logins" style="margin: 4px;">
+        <div class="row">
+            <div class="col">
+                <button (click)="showAll()" type="button" class="btn btn-primary" style="margin: 5px">Show All</button>
+            </div>
+            <div class="col">
+                <button (click)="admins()" type="button" class="btn btn-primary" style="margin: 5px">Site Admins</button>
+            </div>
+            <div class="col">
+                <button (click)="non()" type="button" class="btn btn-primary" style="margin: 5px">Non Admins</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <label class="mt-3 mx-2">Custom Filter</label>
+                <input class="text-center" #box (keyup.enter)="onEnter(box.value); box.value='';" placeholder="Search Logins" style="margin: 4px;">
+            </div>
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, IterableChanges, DoCheck, IterableDiffers } from '@angular/core';
 import { AppService } from './services/app.service';
 import { User } from './user.class';
 
@@ -7,28 +7,33 @@ import { User } from './user.class';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements DoCheck {
     public userData: Array<User> = [];
     public selectedUser: User;
+    private differ: any;
     
-    constructor(private appService: AppService) {}
-
-    ngOnInit(){ 
-        this.appService.getData().subscribe(
-            data => this.userData = data, 
-            error => console.log(error)
-        )
-
-        /* setTimeout(() => {
-            let nUser = new User();
-            nUser.login = "Poo";
-            nUser.site_admin = true;
-            this.userData.push(nUser);
-        }, 5000); */
+    constructor(private appService: AppService, differs: IterableDiffers) {
+        this.differ = differs.find([]).create(null);
     }
 
-    ngOnDestroy(){
-        console.log("Killing");
+    ngOnInit() {
+        if (sessionStorage.length > 0) {
+            console.log("Getting users from session storage...");
+            this.userData = JSON.parse(sessionStorage.getItem("Users"));
+        } else {
+            console.log("Getting users using service...");
+            this.appService.getData().subscribe(
+                data => this.userData = data, 
+                error => console.log(error)
+            )
+        }
+    }
+
+    ngDoCheck() {
+        const change = this.differ.diff(this.userData);
+        if (change != null){
+            sessionStorage.setItem( 'Users', JSON.stringify(this.userData));
+        }
     }
 
     // fired when a user is selected from the user list
