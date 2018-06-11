@@ -1,5 +1,7 @@
 # PrismChallenge
 
+This project was a fun one to code. A majority of the work was performed over 3 nights. There were really no challenging aspects to this project. The only item which took some time was using session storage which turned out being a lot simpler to use then anticipated. I used Bootswatch for themeing and Bootstrap for page layout and very minimal CSS. I tried not to aufuscate the code to much so that it is easier to read and follow. I did not write any unit tests or e2e tests because that is out of the scope of this challenge although I highly suggest using them. I have cleaned up all of the lint errors and the project builds cleanly. Let me know if you have any questions about any of the coding aspects of the project. I look forward to hearing from you and getting your opinion about the methods used to complete the challenge.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## Development server
