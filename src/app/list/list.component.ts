@@ -18,9 +18,6 @@ export class ListComponent implements OnInit {
 
     // emits an event on user change or click event
     private userClick(selectedUser: User): void {
-        /* this.userSelectionEvent.emit({
-            value: selectedUser
-        }); */
         this.emitEvent(selectedUser);
     }
 
